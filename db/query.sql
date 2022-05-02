@@ -32,4 +32,3 @@ SELECT employee.id, employee.first_name, employee.last_name, role.title, departm
     INNER JOIN department ON (department.id = role.department_id)
     ORDER BY employee.id;
   
-SELECT first_name, last_name, role_id FROM employee 	WHERE employee.id = 4;
