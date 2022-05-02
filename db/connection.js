@@ -5,7 +5,9 @@ const connection = mysql.createConnection({
     user: "root",
     password: "Asm577831!",
     database: "employees"
-});
+},
+console.log("Connected.");
+);
 
 // Sets error handling
 connection.connect(function (err) {
