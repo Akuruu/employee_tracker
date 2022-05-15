@@ -15,56 +15,56 @@ function intro() {
 // Inquirer
 function mainMenu() {
     inquirer
-        prompt([
-            {
-                type: "list",
-                name: "choices",
-                message: "Where do you want to go?",
-                choices: [
-                    'View all Roles',
-                    'View all Departments',
-                    'View all Employees',
-                    'Add a Department',
-                    'Add an Employee',
-                    'Add a role',
-                    'Quit'
-                ]
-            }
-        ]).then(res => {
-            let choices = res.choices;
-            console.log(res.choices);
+    prompt([
+        {
+            type: "list",
+            name: "choices",
+            message: "Where do you want to go?",
+            choices: [
+                'View all Roles',
+                'View all Departments',
+                'View all Employees',
+                'Add a Department',
+                'Add an Employee',
+                'Add a role',
+                'Quit'
+            ]
+        }
+    ]).then(res => {
+        let choices = res.choices;
+        console.log(res.choices);
 
-            // Switch cases for each choice
-            switch (res.choices) {
-                case "View all Roles":
-                    viewRoles();
-                    break;
+        // Switch cases for each choice
+        switch (res.choices) {
+            case "View all Roles":
+                viewRoles();
+                break;
 
-                case "View all Departments":
-                    viewDepartments();
-                    break;
+            case "View all Departments":
+                viewDepartments();
+                break;
 
-                case "View all Employees":
-                     viewEmployees();
-                    break;
+            case "View all Employees":
+                viewEmployees();
+                break;
 
-                case "Add Department":
-                    // addDepartments();
-                    break;
+            case "Add Department":
+                // addDepartments();
+                break;
 
-                case "Add Employee":
-                    // addEmployees();
-                    break;
+            case "Add Employee":
+                // addEmployees();
+                break;
 
-                case "Add a Role":
-                    // addRoles();
-                    break;
+            case "Add a Role":
+                // addRoles();
+                break;
 
-                case "Quit":
-                    quit();
-                    break;
-            }
-        })
+            case "Quit":
+                quit();
+                break;
+        }
+    })
 };
 
 
@@ -107,9 +107,9 @@ function viewRoles() {
 }
 
 function quit() {
-     console.log("Goodbye...");
-     process.exit();
- };
+    console.log("Goodbye...");
+    process.exit();
+};
 
 intro();
 viewEmployees();
