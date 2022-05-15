@@ -112,4 +112,3 @@ function quit() {
 };
 
 intro();
-viewEmployees();
