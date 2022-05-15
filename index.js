@@ -1,7 +1,8 @@
 const { prompt } = require("inquirer");
 const inquirer = require('inquirer');
-// const db = require('./db');
+const db = require('./db');
 const { table } = require('table');
+const ctable = require('console.table');
 const mysql = require('mysql2');
 
 function intro() {
@@ -32,14 +33,15 @@ function mainMenu() {
         ]).then(res => {
             let choices = res.choices;
             console.log(res.choices);
+
             // Switch cases for each choice
             switch (res.choices) {
                 case "View all Roles":
-                    // viewRoles();
+                    viewRoles();
                     break;
 
                 case "View all Departments":
-                    // viewDepartments();
+                    viewDepartments();
                     break;
 
                 case "View all Employees":
@@ -59,7 +61,7 @@ function mainMenu() {
                     break;
 
                 case "Quit":
-                    connection.end();
+                    quit();
                     break;
             }
         })
@@ -71,6 +73,7 @@ function mainMenu() {
 // console.table(employees);
 // }
 
+// View all employees
 function viewEmployees() {
     db.findAllEmployees()
         .then(([rows]) => {
@@ -79,12 +82,34 @@ function viewEmployees() {
             console.table(employees)
         })
         .then(() => mainMenu());
-        viewEmployees();
 }
 
-// function quit() {
-//     console.log("Goodbye...");
-//     process.exit();
-// };
+// View all departments
+function viewDepartments() {
+    db.findAllDepartments()
+        .then(([rows]) => {
+            let departments = rows;
+            console.log("\n");
+            console.table(departments)
+        })
+        .then(() => mainMenu());
+}
+
+// View all roles
+function viewRoles() {
+    db.findAllRoles()
+        .then(([rows]) => {
+            let roles = rows;
+            console.log("\n");
+            console.table(roles)
+        })
+        .then(() => mainMenu());
+}
+
+function quit() {
+     console.log("Goodbye...");
+     process.exit();
+ };
 
 intro();
+viewEmployees();
