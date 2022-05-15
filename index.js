@@ -1,5 +1,6 @@
 const { prompt } = require("inquirer");
-const db = require('db');
+const inquirer = require('inquirer');
+// const db = require('./db');
 const { table } = require('table');
 const mysql = require('mysql2');
 
@@ -7,6 +8,7 @@ function intro() {
     const message = [
         ['EMPLOYEE MANAGEMENT SYSTEM']
     ]; console.log(table(message));
+    mainMenu();
 };
 
 // Inquirer
