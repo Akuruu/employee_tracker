@@ -1,4 +1,4 @@
-# Note Taker with Express
+# Employee Tracker
       
  ## Table of Contents 
 
