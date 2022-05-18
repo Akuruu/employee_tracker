@@ -1,6 +1,6 @@
 const { prompt } = require("inquirer");
 const inquirer = require('inquirer');
-const db = require('./db');
+const connection = require('./db/connection');
 const { table } = require('table');
 const ctable = require('console.table');
 const mysql = require('mysql2');
@@ -75,40 +75,38 @@ function mainMenu() {
 
 // View all employees
 function viewEmployees() {
-    db.findAllEmployees()
-        .then(([rows]) => {
-            let employees = rows;
-            console.log("\n");
-            console.table(employees)
-        })
-        .then(() => mainMenu());
-}
+    connection.query("SELECT first_name AS `First Name`, last_name AS `Last Name` FROM employee", function (err, results) {
+        if (err) throw err;
+        console.log(results);
+        mainMenu();
+      });
+    }
 
-// View all departments
-function viewDepartments() {
-    db.findAllDepartments()
-        .then(([rows]) => {
-            let departments = rows;
-            console.log("\n");
-            console.table(departments)
-        })
-        .then(() => mainMenu());
-}
+// // View all departments
+// function viewDepartments() {
+//     employees.findAllDepartments()
+//         .then(([rows]) => {
+//             let departments = rows;
+//             console.log("\n");
+//             console.table(departments)
+//         })
+//         .then(() => mainMenu());
+// }
 
-// View all roles
-function viewRoles() {
-    db.findAllRoles()
-        .then(([rows]) => {
-            let roles = rows;
-            console.log("\n");
-            console.table(roles)
-        })
-        .then(() => mainMenu());
-}
+// // View all roles
+// function viewRoles() {
+//     db.findAllRoles()
+//         .then(([rows]) => {
+//             let roles = rows;
+//             console.log("\n");
+//             console.table(roles)
+//         })
+//         .then(() => mainMenu());
+// }
 
-function quit() {
-    console.log("Goodbye...");
-    process.exit();
-};
+// function quit() {
+//     console.log("Leaving Employee Management System...");
+//     process.exit();
+// };
 
 intro();
