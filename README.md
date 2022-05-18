@@ -35,7 +35,7 @@ The Employee Track application will help managers and business owners keep track
 -----------------------------------------
  
       
- (will be added soon)
+ <img src="assets/demo.png">
 
 
       
