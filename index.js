@@ -73,38 +73,38 @@ function mainMenu() {
 // console.table(employees);
 // }
 
-// View all employees
+// View all Employees
 function viewEmployees() {
     connection.query("SELECT first_name AS 'First Name', last_name AS 'Last Name' FROM employee", function (err, results) {
         if (err) throw err;
         console.log(results);
         mainMenu();
-      });
-    }
+    });
+}
 
-    function viewDepartments() {
-        connection.query("SELECT name AS 'Department', id AS 'Department ID' FROM department", function (err, results) {
-            if (err) throw err;
-            console.log(results);
-            mainMenu();
-          });
-        }
-    
+// Views all Departments
+function viewDepartments() {
+    connection.query("SELECT name AS 'Department', id AS 'Department ID' FROM department", function (err, results) {
+        if (err) throw err;
+        console.log(results);
+        mainMenu();
+    });
+}
 
-// // View all roles
-// function viewRoles() {
-//     db.findAllRoles()
-//         .then(([rows]) => {
-//             let roles = rows;
-//             console.log("\n");
-//             console.table(roles)
-//         })
-//         .then(() => mainMenu());
-// }
 
-// function quit() {
-//     console.log("Leaving Employee Management System...");
-//     process.exit();
-// };
+// View all Roles
+function viewRoles() {
+    connection.query("SELECT title AS 'Title', salary AS 'Salary', id AS 'ID' FROM role", function (err, results) {
+        if (err) throw err;
+        console.log(results);
+        mainMenu();
+    });
+}
+
+// Quits the app
+function quit() {
+    console.log("Leaving Employee Management System...");
+    process.exit();
+};
 
 intro();
