@@ -75,23 +75,21 @@ function mainMenu() {
 
 // View all employees
 function viewEmployees() {
-    connection.query("SELECT first_name AS `First Name`, last_name AS `Last Name` FROM employee", function (err, results) {
+    connection.query("SELECT first_name AS 'First Name', last_name AS 'Last Name' FROM employee", function (err, results) {
         if (err) throw err;
         console.log(results);
         mainMenu();
       });
     }
 
-// // View all departments
-// function viewDepartments() {
-//     employees.findAllDepartments()
-//         .then(([rows]) => {
-//             let departments = rows;
-//             console.log("\n");
-//             console.table(departments)
-//         })
-//         .then(() => mainMenu());
-// }
+    function viewDepartments() {
+        connection.query("SELECT name AS 'Department', id AS 'Department ID' FROM department", function (err, results) {
+            if (err) throw err;
+            console.log(results);
+            mainMenu();
+          });
+        }
+    
 
 // // View all roles
 // function viewRoles() {

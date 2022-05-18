@@ -18,8 +18,8 @@ VALUES
 
 INSERT INTO employee (first_name, last_name, role_id)
 VALUES
-("Ester", "Agas", 6);
-("Jeremy", "Biascoecheva", 2);
+("Ester", "Agas", 1);
+("Kaladis", "Torris", 2);
 ("Jason", "Carter", 3);
 ("Fran", "Daniels", 4);
 ("Rosemary", "Barientos", 5);
